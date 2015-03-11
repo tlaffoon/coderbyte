@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>First Factorial in JS</title>
+</head>
+<body>
+
+    <p> Using the JavaScript language, have the function FirstFactorial(num) take the num 
+    parameter being passed and return the factorial of it (ie. if num = 4, return 
+    (4 * 3 * 2 * 1)). </p>
+
+    <p>For the test cases, the range will be between 1 and 18. </p>
+
+    <p>For reference, a factorial is the product of an integer and all the integers below it; 
+        e.g., factorial four ( 4! ) is equal to 24.</p>
+
+<script type="text/javascript">
+
+function FirstFactorial(num) { 
+
+    var result = 1;
+
+    for (var i = num; i > 0; i--) {
+        // factors.push(i);
+        result = result * i;
+    };
+
+    return result;   
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+console.log(FirstFactorial(4));   
+
+</script>
+
+</body>
+</html>
