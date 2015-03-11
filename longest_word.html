@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>First Factorial in JS</title>
+</head>
+<body>
+
+    <p> Using the JavaScript language, have the function LongestWord(sen) 
+        take the sen parameter being passed and return the largest word 
+        in the string. 
+    </p>
+
+    <p> If there are two or more words that are the same length, return 
+        the first word from the string with that length. Ignore punctuation 
+        and assume sen will not be empty. 
+    </p>
+
+<script type="text/javascript">
+
+function LongestWord(string) { 
+
+    var words = [];
+    var longestWord;
+    var lengthLimit = 0;
+
+    // Strip out special characters
+    string = string.replace(/[^a-zA-Z0-9]/g,' ');
+    string = string.toLowerCase().trim();
+    words = string.split(" ");
+    
+    words.forEach(function(element) {
+    
+        if (element.length > lengthLimit) {
+            lengthLimit = element.length;    
+            longestWord = element;
+        };
+
+    });
+
+    return longestWord;     
+}
+   
+console.log(LongestWord('The quick brown fox jumped over the lazy dog.'));  
+
+</script>
+
+</body>
+</html>
