@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Simple Adding in JS</title>
+</head>
+<body>
+
+    <p>
+        Using the JavaScript language, have the function SimpleAdding(num) add up all 
+        the numbers from 1 to num. For the test cases, the parameter num will be any 
+        number from 1 to 1000. 
+    </p>
+
+<script type="text/javascript">
+    function SimpleAdding(num) { 
+
+        var result = 1;
+        
+        for (var i = 1; i <= num; i++) {
+            result = result * [i];
+        };
+
+        return result; 
+    }
+   
+    // keep this function call here 
+    // to see how to enter arguments in JavaScript scroll down
+    console.log(SimpleAdding(5));  
+
+</script>
+
+</body>
+</html>
