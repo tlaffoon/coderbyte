@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title>Simple Symbols in JS</title>
+</head>
+<body>
+
+    <p>
+        Using the JavaScript language, have the function SimpleSymbols(str) 
+        take the str parameter being passed and determine if it is an acceptable 
+        sequence by either returning the string true or false. 
+    </p>
+
+    <p>
+        The str parameter will be composed of + and = symbols with several letters 
+        between them (ie. ++d+===+c++==a) and for the string to be true each letter 
+        must be surrounded by a + symbol. So the string to the left would be false. 
+        The string will not be empty and will have at least one letter.
+    </p>
+
+<script type="text/javascript">
+
+    // Check if character is a letter.
+    function isLetter(character) {
+        var regex = /[A-Z]/gi;
+
+        if (character.match(regex)) {
+            return true;
+        };
+
+        return false;
+    };
+
+    // Check if character is a plus.
+    function isPlus(character) {
+
+        if (character === '+') {
+            return true;
+        };
+
+        return false;
+    };
+
+    // Check if character is undefined.
+    function isUndefined(character) {
+
+        if (typeof character === "undefined") {
+            return true;
+        };
+
+        return false;
+    };
+
+    // Main function.
+    function SimpleSymbols(string) { 
+
+        // split the entire string into an array
+        characterArray = string.split("");
+
+        // find the position of all letters in the characterArray
+        characterArray.forEach(function(character, index) {
+            
+            if (isLetter(character)) {
+                
+            };
+
+        });
+
+    }
+       
+    console.log(SimpleSymbols('+d+=3=+s+'));
+    console.log(SimpleSymbols('f++d+'));
+    console.log(SimpleSymbols('af++d+'));
+
+</script>  
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<html>
+<head>
+    <title>Caesar Cipher in JS</title>
+
+    <link rel="stylesheet" type="text/css" href="/includes/css/bootstrap.min.css">
+</head>
+<body>
+
+<h2 class="page-header"> Caesar Cipher </h2>
+
+<p>
+    Using the JavaScript language, have the function CaesarCipher(str,num) 
+    take the str parameter and perform a Caesar Cipher shift on it using 
+    the num parameter as the shifting number. 
+</p>
+
+<p>
+    A Caesar Cipher works by 
+    shifting each letter in the string N places down in the alphabet (in 
+    this case N will be num). Punctuation, spaces, and capitalization should remain intact. 
+</p>
+
+<p>
+    For example if the string is "Caesar Cipher" and num is 2 the output should be "Ecguct Ekrjgt".
+</p>
+
+<script type="text/javascript">
+
+    var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+    function isASpecialCharacter(character) {
+
+        if (character.match(/[^a-zA-Z0-9]/g,' ')) {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    function CaesarCipher(string, num) { 
+        
+        // Initialize empty cipher array.
+        var cipher = [];
+
+        // break string into words
+        words = string.split(' ');
+
+        // Loop through words.
+        words.forEach(function(word) {
+            var newWord = [];
+            
+            word = word.toLowerCase();
+
+            // break word into individual characters.
+            characters = word.split('');
+
+            characters.forEach(function(character, index){
+                
+                var location;
+
+                if (isASpecialCharacter(character)) {
+                    // 
+                    newWord.push(character);
+                } else {
+                    
+                    // find character's location in alphabet
+                    location = alphabet.indexOf(character);
+                    // console.log(character + " located at alphabet index: " + location);
+                    
+                    // account for Z
+                    if (location === 25) {
+                        character = alphabet[(num)];
+                    };
+
+                    // shift character
+                    character = alphabet[(location + num)];
+                    // console.log("Shifting " + character + " to " + alphabet[(num)] + ".");
+                    newWord.push(character);
+
+                };
+
+            });
+            newWord = newWord.join('');
+            cipher.push(newWord + " ");
+
+        });
+
+        // use regex to determine if a character is punctuation/special character or not.  If so, ignore it.
+        // preserve whitespace.
+        // preserve capital letters.
+        // Account for Z
+
+        console.log(cipher.join(''));
+        // return cipher.toString(); 
+             
+    }
+    
+    console.log('The quick brown fox... jumped - over the lazy; dog.');
+    CaesarCipher('The quick brown fox... jumped - over the lazy; dog.', 1); 
+
+</script>
+
+</body>
+</html>
