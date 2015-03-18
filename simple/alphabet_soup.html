@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title>Alphabet Soup in JS</title>
+</head>
+<body>
+
+<p>
+    Using the JavaScript language, have the function AlphabetSoup(str)
+    take the str string parameter being passed and return the string 
+    with the letters in alphabetical order (ie. hello becomes ehllo). 
+</p>
+    
+<p>
+    Assume numbers and punctuation symbols will not be included in the string. 
+</p>
+
+<script type="text/javascript">
+    
+    function isASpecialCharacter(character) {
+
+        if (character.match(/[^a-zA-Z0-9]/g,' ')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function isNumber(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+
+    function AlphabetSoup(str) { 
+
+        var sortedWords = [];
+
+        // Lowercase original string
+        str = str.toLowerCase();
+
+        // Create array of words
+        var words = str.split(" ");
+
+        // Loop through all words
+        words.forEach(function(word, index){
+
+            // Create letters array
+            var letters = word.split('');
+
+            // Loop through all letters
+            letters.forEach(function(letter, index){
+
+                // Strip out special characters.
+                if (isASpecialCharacter(letter)) {
+                    letters.splice(index, 1);
+                };
+
+                // Strip out numbers.
+                if (isNumber(letter)) {
+                    letters.splice(index, 1);
+                };
+
+            });
+
+            // Sort letters alphetically and overwrite previous array.
+            letters = letters.sort();
+
+            // Create string of sorted letters
+            letters = letters.join('');
+
+            // Add sorted letters to array
+            sortedWords.push(letters);
+        });
+
+        // Join sorted words with one whitespace
+        sortedWords = sortedWords.join(' ');
+
+        return sortedWords;
+    }
+
+    console.log(AlphabetSoup("The quick brown zfox7 jumped over the lazy dog."));
+</script>
+
+</body>
+</html>
