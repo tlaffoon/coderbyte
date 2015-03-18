@@ -12,15 +12,13 @@
 
 <script type="text/javascript">
 
-    var str;
-    var reversed = [];
-
     function FirstReverse(str) { 
+        var reversed = [];
 
         str = str.split("");
 
         for (var i = str.length - 1; i >= 0; i--) {
-          reversed.push(str[i]);
+            reversed.push(str[i]);
         };
 
         return reversed.join(""); 
