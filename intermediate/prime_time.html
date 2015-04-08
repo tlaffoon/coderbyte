@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Prime Time in JS</title>
+</head>
+<body>
+
+<p>
+    Using the JavaScript language, have the function PrimeTime(num) 
+    take the num parameter being passed and return the string true 
+    if the parameter is a prime number, otherwise return the string 
+    false. The range will be between 1 and 2^16. 
+</p>
+    
+<p>
+    Assume numbers and punctuation symbols will not be included in the string. 
+</p>
+
+<script type="text/javascript">
+
+function PrimeTime(num) { 
+
+    var prime = true;
+
+    for (var i = 2; i < num; i++) {
+        if (num % i == 0) {
+            prime = false;
+        };
+    };
+
+    return (prime) ? true : false;
+
+}
+
+console.log(PrimeTime(17));
+
+</script>
+
+</body>
+</html>
